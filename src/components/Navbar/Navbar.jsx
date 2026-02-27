@@ -61,6 +61,12 @@ const Navbar = () => {
             <li key={section}>
               <a
                 href={`#${section}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById(section)
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
                 onMouseEnter={(e) => {
                   const rect = e.target.getBoundingClientRect();
                   setUnderlineStyle({
@@ -100,7 +106,13 @@ const Navbar = () => {
               <a
                 key={section}
                 href={`#${section}`}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById(section)
+                    ?.scrollIntoView({ behavior: "smooth" });
+                  setIsOpen(false);
+                }}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>

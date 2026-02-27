@@ -1,16 +1,72 @@
-# React + Vite
+🌿 Manikanta – Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, animated, and fully responsive developer portfolio built using React and Framer Motion, featuring smooth UI transitions, interactive components, and a fully functional contact system powered by EmailJS.
 
-Currently, two official plugins are available:
+This portfolio showcases projects, experience, skills, and provides a professional contact interface with auto-reply and spam protection.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Live Demo
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+✨ Features
+🎨 Modern UI & Animations
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Smooth scroll transitions
+
+Interactive project cards with shine effects
+
+Animated experience timeline
+
+Orbit-style animated hero section
+
+Hover-based micro interactions
+
+Responsive layout for all screen sizes
+
+🧠 Experience Timeline
+
+Vertically aligned animated timeline
+
+Centered timeline dots
+
+Hover activation effects
+
+Clean professional structure
+
+💼 Projects Section
+
+Real GitHub repository links
+
+Hover shine animation
+
+Symmetrical card layout
+
+Responsive grid system
+
+📬 Fully Functional Contact System
+
+EmailJS integration
+
+Auto-reply confirmation email
+
+Anti-spam honeypot protection
+
+Submission cooldown protection
+
+Multiple submission prevention
+
+Animated success/error messages
+
+🛠 Tech Stack
+
+React
+
+Framer Motion
+
+EmailJS
+
+React Icons
+
+CSS (Custom Styling)
+
+Vite
