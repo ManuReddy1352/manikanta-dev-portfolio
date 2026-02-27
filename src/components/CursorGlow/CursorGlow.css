@@ -1,23 +1,13 @@
-/* ==============================
-   EXPERIENCE SECTION
- ============================== */
-
 .experience-container {
   margin-top: 40px;
   max-width: 1440px;
   margin: 40px auto 0 auto;
 }
 
-/* ==============================
-   TIMELINE WRAPPER
- ============================== */
-
 .timeline-wrapper {
   position: relative;
   margin-top: 60px;
 }
-
-/* Vertical Line (SOLID) */
 
 .timeline-line {
   position: absolute;
@@ -35,7 +25,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  /* This centers dot vertically */
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -44,12 +33,9 @@
   margin-bottom: 0;
 }
 
-/* Dot (Centered Perfectly) */
-
 .timeline-dot {
   position: absolute;
   left: 12px;
-  /* centers dot on line */
   width: 16px;
   height: 16px;
   border: 4px solid #fab95b;
@@ -66,13 +52,8 @@
   box-shadow: 0 0 12px rgba(250, 185, 91, 0.9);
 }
 
-/* ==============================
-   EXPERIENCE CARD
- ============================== */
-
 .experience-card {
   margin-left: 60px;
-  /* pushes card right of line */
   flex: 1;
   background: #0f172a;
   padding: 25px 30px;
@@ -88,10 +69,6 @@
     0 10px 20px rgba(0, 0, 0, 0.4),
     0 15px 35px rgba(250, 185, 91, 0.15);
 }
-
-/* ==============================
-   TYPOGRAPHY
- ============================== */
 
 .experience-card h3 {
   font-size: 18px;

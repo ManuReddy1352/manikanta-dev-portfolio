@@ -1,16 +1,8 @@
-/* ==============================
-   EXPERIENCE SECTION
- ============================== */
-
 .experience-container {
   margin-top: 40px;
   max-width: 1440px;
   margin: 40px auto 0 auto;
 }
-
-/* ==============================
-   TIMELINE WRAPPER
- ============================== */
 
 .timeline-wrapper {
   position: relative;
@@ -26,7 +18,6 @@
   bottom: 0;
   width: 2px;
   background: #fab95b;
-  /* solid line */
 }
 
 /* Timeline Item */
@@ -35,7 +26,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  /* This centers dot vertically */
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -49,7 +39,6 @@
 .timeline-dot {
   position: absolute;
   left: 12px;
-  /* centers dot on line */
   width: 16px;
   height: 16px;
   border: 4px solid #fab95b;
@@ -66,13 +55,8 @@
   box-shadow: 0 0 12px rgba(250, 185, 91, 0.9);
 }
 
-/* ==============================
-   EXPERIENCE CARD
- ============================== */
-
 .experience-card {
   margin-left: 60px;
-  /* pushes card right of line */
   flex: 1;
   background: #0f172a;
   padding: 25px 30px;
@@ -88,10 +72,6 @@
     0 10px 20px rgba(0, 0, 0, 0.4),
     0 15px 35px rgba(250, 185, 91, 0.15);
 }
-
-/* ==============================
-   TYPOGRAPHY
- ============================== */
 
 .experience-card h3 {
   font-size: 18px;
@@ -118,7 +98,17 @@
   line-height: 1.6;
 }
 
+@media (max-width: 900px) {
+  .experience-container {
+    margin-top: 20px;
+  }
+}
+
 @media (max-width: 600px) {
+  .experience-container {
+    margin-top: 10px;
+  }
+
   .experience-card {
     margin-left: 40px;
     padding: 20px;

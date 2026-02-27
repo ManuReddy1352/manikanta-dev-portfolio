@@ -11,12 +11,16 @@ const Navbar = () => {
   const sections = ["home", "projects", "experience", "contact"];
 
   useEffect(() => {
+    const scroller = document.getElementById("main-scroller") || window;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const scrollY =
+        scroller.scrollTop !== undefined ? scroller.scrollTop : window.scrollY;
+      setScrolled(scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    scroller.addEventListener("scroll", handleScroll);
+    return () => scroller.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -28,7 +32,10 @@ const Navbar = () => {
           }
         });
       },
-      { threshold: 0.6 },
+      {
+        threshold: 0.6,
+        root: document.getElementById("main-scroller"),
+      },
     );
 
     sections.forEach((section) => {

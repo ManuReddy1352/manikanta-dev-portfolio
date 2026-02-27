@@ -22,14 +22,16 @@ function App() {
     >
       <Particles />
       <CursorGlow />
-      <ScrollProgress />
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Experience />
-      <Contact />
-      <ScrollToTop />
+      <div id="main-scroller" className="snap-wrapper">
+        <ScrollProgress />
+        <Navbar />
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Contact />
+        <ScrollToTop />
+      </div>
     </motion.div>
   );
 }

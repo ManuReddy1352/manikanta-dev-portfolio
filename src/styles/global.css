@@ -7,24 +7,34 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
+html,
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 80px;
-  overflow-x: hidden;
-  width: 100%;
 }
 
 body {
   background-color: #030712;
   color: #e6edf3;
-  overflow-x: hidden;
+}
+
+.snap-wrapper {
+  height: 100vh;
   width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
 }
 
 /* Section spacing */
 .section {
-  padding: 50px 8%;
+  padding: 100px 8% 50px 8%;
+  /* 100px top, 8% sides, 50px bottom */
   position: relative;
   min-height: 100vh;
   scroll-snap-align: start;
@@ -44,23 +54,20 @@ body {
 }
 
 @media (max-width: 900px) {
-  html {
-    scroll-snap-type: none;
-  }
-
   .section {
-    scroll-snap-align: none;
+    min-height: auto;
+    padding: 40px 5%;
   }
 }
 
 @media (max-width: 600px) {
   .section {
-    padding: 50px 5%;
+    padding: 20px 5%;
   }
 
   .section-title {
     font-size: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 }
 
@@ -83,11 +90,9 @@ body {
 
 .particle {
   position: absolute;
-  /* Size, Position, and Opacity set in Particles.jsx */
   background: rgba(250, 185, 91, 0.6);
   border-radius: 50%;
   animation: floatParticle 12s infinite linear;
-  /* Sped up from 18s */
 }
 
 @keyframes floatParticle {
@@ -111,7 +116,7 @@ body {
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
   color: #e6edf3;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @keyframes gradientShift {

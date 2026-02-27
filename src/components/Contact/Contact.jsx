@@ -13,12 +13,12 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // 🛡 Honeypot Anti-Spam
+    // Honeypot Anti-Spam
     if (form.current.bot_field.value) {
       return;
     }
 
-    // 🛡 Cooldown Protection (15 seconds)
+    // Cooldown Protection (15 seconds)
     const now = Date.now();
     if (now - lastSubmitTime < 15000) {
       setStatusMessage({
@@ -34,7 +34,7 @@ const Contact = () => {
     setLoading(true);
     setLastSubmitTime(now);
 
-    // 📩 Send message to you
+    // Send message to you
     emailjs
       .sendForm(
         "service_pndu45q",
@@ -43,7 +43,7 @@ const Contact = () => {
         "-YA7QEtk0tv1No3QN",
       )
       .then(() => {
-        // 📬 Auto-Reply to User
+        // Auto-Reply to User
         emailjs.send(
           "service_pndu45q",
           "template_u8jy02j",
@@ -106,7 +106,17 @@ const Contact = () => {
             impactful solutions.
           </p>
 
-          <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="contact-form"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                form.current.requestSubmit();
+              }
+            }}
+          >
             {/* Hidden Honeypot Field */}
             <input type="text" name="bot_field" style={{ display: "none" }} />
 

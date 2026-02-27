@@ -8,12 +8,14 @@ const ScrollProgress = () => {
 
   useEffect(() => {
     let ticking = false;
+    const scroller = document.getElementById("main-scroller") || window;
 
     const updateScroll = () => {
-      const scrollTop = window.scrollY;
+      const scrollTop =
+        scroller.scrollTop !== undefined ? scroller.scrollTop : window.scrollY;
       const docHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+        (scroller.scrollHeight || document.documentElement.scrollHeight) -
+        (scroller.clientHeight || document.documentElement.clientHeight);
 
       const scrolled = (scrollTop / docHeight) * 100;
 
@@ -31,8 +33,8 @@ const ScrollProgress = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    scroller.addEventListener("scroll", handleScroll);
+    return () => scroller.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
