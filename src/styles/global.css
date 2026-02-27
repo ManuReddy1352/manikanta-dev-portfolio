@@ -1,20 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
-  background-color: #0b0f14;
+  background-color: #030712;
   color: #e6edf3;
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* Section spacing */
 .section {
-  padding: 120px 8%;
+  padding: 50px 8%;
   position: relative;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Titles */
@@ -22,13 +39,34 @@ body {
   font-size: 42px;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .section {
+    scroll-snap-align: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 50px 5%;
+  }
+
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
 }
 
 /* Professional gradient accent */
 .gradient-text {
-  background: linear-gradient(90deg, #00e5ff, #3b82f6);
+  background: linear-gradient(90deg, #fab95b, #e8e2db);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -45,11 +83,11 @@ body {
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(0, 229, 255, 0.6);
+  /* Size, Position, and Opacity set in Particles.jsx */
+  background: rgba(250, 185, 91, 0.6);
   border-radius: 50%;
-  animation: floatParticle 18s infinite linear;
+  animation: floatParticle 12s infinite linear;
+  /* Sped up from 18s */
 }
 
 @keyframes floatParticle {
@@ -57,11 +95,35 @@ body {
     transform: translateY(100vh);
     opacity: 0;
   }
+
   30% {
     opacity: 0.6;
   }
+
   100% {
     transform: translateY(-10vh);
     opacity: 0;
+  }
+}
+
+body {
+  background: linear-gradient(-45deg, #030712, #0f172a, #030712, #1e293b);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  color: #e6edf3;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }

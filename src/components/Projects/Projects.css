@@ -1,93 +1,162 @@
-.projects {
-  position: relative;
+.projects-container {
+  text-align: center;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .project-card {
+  background: #0f172a;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: left;
+  border: 1px solid rgba(250, 185, 91, 0.1);
+  transition: all 0.3s ease;
   position: relative;
-  background: #11161d;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 40px;
   overflow: hidden;
-  transition: 0.4s ease;
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-card::before {
   content: "";
   position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(99, 102, 241, 0.2) 0%,
-    transparent 70%
+  top: 0;
+  left: -120%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
   );
-  top: -50%;
-  left: -50%;
-  transition: 0.6s ease;
-  opacity: 0;
+  transform: skewX(-25deg);
 }
 
 .project-card:hover::before {
-  opacity: 1;
-  transform: scale(1.2);
+  animation: shineSweep 0.9s ease forwards;
 }
 
+@keyframes shineSweep {
+  0% {
+    left: -120%;
+  }
+
+  100% {
+    left: 130%;
+  }
+}
+
+/* Hover Effect */
 .project-card:hover {
-  box-shadow: 0 20px 40px rgba(0, 229, 255, 0.25);
-  transform: rotateX(6deg) rotateY(-6deg) translateY(-12px);
+  transform: translateY(-5px);
+  border-color: rgba(250, 185, 91, 0.3);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.4),
+    0 15px 35px rgba(250, 185, 91, 0.15);
 }
 
-.project-content h3 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.project-card h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
 }
 
-.project-content p {
-  color: #94a3b8;
-  margin-bottom: 25px;
+.project-card p {
+  color: #8b98a5;
+  font-size: 15px;
   line-height: 1.6;
+  margin-bottom: 20px;
 }
 
+/* Tech Badges */
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-bottom: 20px;
 }
 
 .tech-stack span {
-  background: rgba(0, 229, 255, 0.1);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 13px;
-  color: #8b98a5;
+  font-size: 12px;
+  padding: 6px 12px;
+  background: rgba(250, 185, 91, 0.1);
+  border-radius: 20px;
+  color: #fab95b;
+}
+
+/* Links */
+.project-links {
+  display: flex;
+  justify-content: center;
+}
+
+.project-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #fab95b;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 1px solid #fab95b;
+  color: #fab95b;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 229, 255, 0.15);
 }
 
-.tech-stack span:hover {
-  background: linear-gradient(90deg, #00e5ff, #3b82f6);
-  color: #0b0f14;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 229, 255, 0.3);
+.github-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #fab95b, #e8e2db);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.github-btn:hover::before {
+  opacity: 0.15;
+}
+
+.github-btn:hover {
+  background: rgba(250, 185, 91, 0.1);
+  transform: translateY(-3px);
+}
+
+.project-links a:hover {
+  opacity: 0.7;
+}
+
+.project-content {
+  flex-grow: 1;
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    gap: 20px;
+  }
+
   .project-card {
-    padding: 30px;
+    padding: 20px;
   }
 }

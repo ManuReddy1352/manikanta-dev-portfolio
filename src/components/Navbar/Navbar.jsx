@@ -6,16 +6,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("home");
+  const [underlineStyle, setUnderlineStyle] = useState({});
 
-  const sections = [
-    "home",
-    "about",
-    "skills",
-    "experience",
-    "projects",
-    "achievements",
-    "contact",
-  ];
+  const sections = ["home", "projects", "experience", "contact"];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,19 +42,32 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
       <div className="navbar-container">
-        <div className="logo">MR</div>
+        <a href="#home" className="logo">
+          MR
+        </a>
 
-        <ul className="nav-links">
+        <ul
+          className="nav-links"
+          onMouseLeave={() => setUnderlineStyle({ opacity: 0 })}
+        >
           {sections.map((section) => (
             <li key={section}>
               <a
                 href={`#${section}`}
-                className={active === section ? "active" : ""}
+                onMouseEnter={(e) => {
+                  const rect = e.target.getBoundingClientRect();
+                  setUnderlineStyle({
+                    width: rect.width,
+                    left: e.target.offsetLeft,
+                    opacity: 1,
+                  });
+                }}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>
             </li>
           ))}
+          <span className="nav-underline" style={underlineStyle} />
         </ul>
 
         <div

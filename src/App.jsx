@@ -1,17 +1,16 @@
 import { motion } from "framer-motion";
 
 import About from "./components/About/About";
-import Achievements from "./components/Achievements/Achievements";
 import Contact from "./components/Contact/Contact";
+import CursorGlow from "./components/CursorGlow/CursorGlow";
 import Experience from "./components/Experience/Experience";
-import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
-import Projects from "./components/Projects/Projects";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import Skills from "./components/Skills/Skills";
-
 import Particles from "./components/Particles/Particles";
+import Projects from "./components/Projects/Projects";
+import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
 import "./styles/global.css";
 
 function App() {
@@ -22,15 +21,14 @@ function App() {
       transition={{ duration: 0.8 }}
     >
       <Particles />
+      <CursorGlow />
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <About />
-      <Skills />
-      <Experience />
       <Projects />
-      <Achievements />
+      <Experience />
       <Contact />
-      <Footer />
       <ScrollToTop />
     </motion.div>
   );

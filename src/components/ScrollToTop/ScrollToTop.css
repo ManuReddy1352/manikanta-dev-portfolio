@@ -2,8 +2,8 @@
   position: fixed;
   bottom: 40px;
   right: 40px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  color: white;
+  background: linear-gradient(90deg, #fab95b, #e8e2db);
+  color: #030712;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -11,11 +11,20 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.6);
+  box-shadow: 0 10px 25px rgba(250, 185, 91, 0.6);
   transition: 0.3s ease;
   z-index: 1000;
 }
 
 .scroll-top:hover {
   transform: translateY(-5px);
+}
+
+@media (max-width: 600px) {
+  .scroll-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
 }

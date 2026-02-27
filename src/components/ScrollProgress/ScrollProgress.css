@@ -1,0 +1,35 @@
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 3000;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    height 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.progress-container.active {
+  opacity: 1;
+  height: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fab95b, #e8e2db, #fab95b);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  box-shadow:
+    0 0 8px rgba(250, 185, 91, 0.6),
+    0 0 20px rgba(250, 185, 91, 0.4);
+  transition: width 0.15s ease-out;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}

@@ -1,157 +1,338 @@
+/* =========================
+   HERO SECTION
+========================= */
+
 .hero {
-  position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 0 8%;
-  text-align: center;
-  overflow: hidden;
+  padding-top: 60px;
 }
 
-/* Background glow */
-.hero-background {
-  position: absolute;
+.hero-container {
   width: 100%;
-  height: 100%;
-  z-index: -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.blur-circle {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  filter: blur(150px);
-  opacity: 0.6;
-  animation: float 8s infinite ease-in-out;
+/* =========================
+   LEFT SIDE
+========================= */
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  z-index: 2;
 }
 
-.blur-circle.one {
-  background: #00e5ff;
-  top: -100px;
-  left: -100px;
+.hero-left h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
 }
 
-.blur-circle.two {
-  background: #3b82f6;
-  bottom: -150px;
-  right: -150px;
-  animation-delay: 3s;
-}
-
-/* Floating animation */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(40px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.hero-title {
-  font-size: 56px;
-  font-weight: 700;
+.hero-left h2 {
+  font-size: 24px;
+  color: #fab95b;
   margin-bottom: 20px;
-}
-
-.hero-subtitle {
-  font-size: 22px;
   font-weight: 500;
-  color: #8b98a5;
-  margin-bottom: 20px;
 }
 
-.hero-description {
-  max-width: 700px;
-  margin: 0 auto 40px auto;
+.hero-left p {
   color: #8b98a5;
-  font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 450px;
 }
+
+/* Gradient Name Animation */
+
+.gradient-text {
+  background: linear-gradient(90deg, #fab95b, #e8e2db);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* =========================
+   BUTTONS
+========================= */
 
 .hero-buttons {
   display: flex;
-  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.btn-primary {
-  padding: 14px 30px;
-  background: linear-gradient(90deg, #00e5ff, #3b82f6);
-  border-radius: 12px;
-  color: #0b0f14;
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.btn-primary:hover,
-.btn-secondary:hover {
-  box-shadow: 0 10px 30px rgba(0, 229, 255, 0.6);
-  transform: scale(1.05) translateY(-4px);
+.btn-primary {
+  background: linear-gradient(90deg, #fab95b, #e8e2db);
+  color: #030712;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(250, 185, 91, 0.4);
 }
 
 .btn-secondary {
-  padding: 14px 30px;
-  border: 1px solid #00e5ff;
-  border-radius: 12px;
-  color: #00e5ff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s ease;
+  border: 1px solid #fab95b;
+  color: #fab95b;
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  width: 30px;
-  height: 50px;
-  border: 2px solid white;
-  border-radius: 20px;
+.btn-secondary:hover {
+  background: rgba(250, 185, 91, 0.1);
+  transform: translateY(-3px);
 }
 
-.scroll-indicator::after {
-  content: "";
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Orbit Container */
+
+.orbit-wrapper {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  transition: transform 0.4s ease;
+}
+
+/* Core Glow */
+
+.core-glow {
   position: absolute;
-  top: 10px;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  background: white;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #fab95b, #e8e2db);
   border-radius: 50%;
-  transform: translateX(-50%);
-  animation: scroll 2s infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(50px);
+  animation: pulse 4s ease-in-out infinite;
 }
 
-@keyframes scroll {
+@keyframes pulse {
   0% {
-    top: 10px;
-    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
   100% {
-    top: 30px;
-    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 40px;
+/* =========================
+   ORBITS (Continuous Speed System)
+========================= */
+
+.orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 185, 91, 0.1);
+  animation-name: rotate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(--speed);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: --speed 0.4s ease;
+}
+
+.orbit img {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Default Speeds */
+
+.orbit-1 {
+  width: 140px;
+  height: 140px;
+  --speed: 6s;
+}
+
+.orbit-2 {
+  width: 180px;
+  height: 180px;
+  --speed: 10s;
+  animation-direction: reverse;
+}
+
+.orbit-3 {
+  width: 220px;
+  height: 220px;
+  --speed: 14s;
+}
+
+.orbit-4 {
+  width: 260px;
+  height: 260px;
+  --speed: 18s;
+  animation-direction: reverse;
+}
+
+.orbit-5 {
+  width: 300px;
+  height: 300px;
+  --speed: 22s;
+  opacity: 0.8;
+}
+
+.orbit-6 {
+  width: 260px;
+  height: 260px;
+  --speed: 28s;
+  animation-direction: reverse;
+  opacity: 0.6;
+}
+
+/* Hover Speed Boost (Continuous, No Restart) */
+
+.orbit-wrapper:hover .orbit-1 {
+  --speed: 2s;
+}
+
+.orbit-wrapper:hover .orbit-2 {
+  --speed: 3s;
+}
+
+.orbit-wrapper:hover .orbit-3 {
+  --speed: 4s;
+}
+
+.orbit-wrapper:hover .orbit-4 {
+  --speed: 5s;
+}
+
+.orbit-wrapper:hover .orbit-5 {
+  --speed: 6s;
+}
+
+.orbit-wrapper:hover .orbit-6 {
+  --speed: 7s;
+}
+
+.orbit-wrapper:hover {
+  transform: scale(1.05);
+}
+
+.orbit-wrapper:hover .core-glow {
+  filter: blur(70px);
+}
+
+/* Rotation */
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 
-  .hero-subtitle {
-    font-size: 18px;
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    justify-content: center;
   }
 
-  .hero-description {
-    font-size: 16px;
+  .hero-left p {
+    margin: 0 auto 30px auto;
+  }
+
+  .hero-right {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+    z-index: 0;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero-left h1 {
+    font-size: 36px;
+  }
+
+  .hero-left h2 {
+    font-size: 20px;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .orbit-wrapper {
+    transform: scale(0.7);
+    margin-top: -40px;
+  }
+
+  .orbit-wrapper:hover {
+    transform: scale(0.75);
   }
 }
