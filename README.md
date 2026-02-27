@@ -6,7 +6,7 @@ This portfolio showcases projects, experience, skills, and provides a profession
 
 🚀 Live Demo
 
-
+https://manikanta-official.netlify.app/
 
 ✨ Features
 🎨 Modern UI & Animations
